@@ -4,14 +4,16 @@ import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+#Load the LSTM Model
+model=load_model('LSTM.h5')
+
+
 with open("tokenizer.pickle","rb")as file:
     token=pickle.load(file)
     
 #Load the LSTM Model
-model = create_model()  # Define your model architecture again
-model.load_weights('LSTM.h5')
-    
-    
+
+
 # Function to predict the next word
 def predict_next_word(model, tokenizer, text, max_sequence_len):
     token_list = tokenizer.texts_to_sequences([text])[0]
