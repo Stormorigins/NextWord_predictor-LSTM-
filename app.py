@@ -8,7 +8,8 @@ with open("tokenizer.pickle","rb")as file:
     token=pickle.load(file)
     
 #Load the LSTM Model
-model=load_model('LSTM.h5')
+model = create_model()  # Define your model architecture again
+model.load_weights('LSTM.h5')
     
     
 # Function to predict the next word
